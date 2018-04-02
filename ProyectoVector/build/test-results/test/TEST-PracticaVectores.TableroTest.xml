@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PracticaVectores.TableroTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-04-02T01:42:58" hostname="alienrva" time="0.001">
+<testsuite name="PracticaVectores.TableroTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-04-02T06:02:05" hostname="alienrva" time="0.002">
   <properties/>
-  <testcase name="testIniciarMatriz" classname="PracticaVectores.TableroTest" time="0.001"/>
+  <testcase name="testIniciarMatriz" classname="PracticaVectores.TableroTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

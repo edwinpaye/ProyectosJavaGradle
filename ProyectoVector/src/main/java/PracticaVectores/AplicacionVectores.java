@@ -33,10 +33,29 @@ public class AplicacionVectores {
 
 	private void grafica() {
 		int dato = 0;
+		Vector vX;
 		do{
 			tablero.printMatriz(dato);
 			dato = menu.getMando();
-		}while(dato != 5);
+			if (dato == 5) {
+				tablero.setInicial();
+			}
+			if (dato == 6) {
+				tablero.setFinal();
+			}
+			if (dato == 7) {
+				vX = tablero.getVector();
+				printVecGrafic(vX);
+				dato = 8;
+			}
+		}while(dato != 8);
+	}
+
+	private void printVecGrafic(Vector v) {
+		System.out.println("\nResultados del vector en la grafica.\n"
+			+"\n	-Modulo = "+v.getModuloV()
+			+"\n	-Angulo de direccion = "+v.getAnguloDirec()
+			+"\n	-Vector posicion (punto final) = ("+v.x1+"i, "+v.y1+"j)");
 	}
 
 	public void iniciar() {

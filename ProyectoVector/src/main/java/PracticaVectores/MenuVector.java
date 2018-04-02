@@ -57,7 +57,7 @@ public class MenuVector {
 				return 2;
 			}
 			else {
-				System.out.println("\n------------   By Code PV.   ------------");
+				System.out.println("\n------------   By psyCODElico.   ------------");
 				return 1;
 			}
 	}
@@ -68,7 +68,10 @@ public class MenuVector {
 				+"\n 2. Mover la X hacia abajo."
 				+"\n 3. Mover la X hacia la derecha."
 				+"\n 4. Mover la X hacia la izquierda."
-				+"\n 5. Salir.\n");
-		return getRango(1, 5);
+				+"\n 5. Seleccionar el punto inicial."
+				+"\n 6. Seleccionar el punto final."
+				+"\n 7. Obtener resultados."
+				+"\n 8. Salir.\n");
+		return getRango(1, 8);
 	}
 }

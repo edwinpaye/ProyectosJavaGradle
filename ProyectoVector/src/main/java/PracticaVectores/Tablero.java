@@ -6,11 +6,26 @@ public class Tablero {
 	private int columnas;
 	private int x = 0;
 	private int y;
+	private int vector[] = new int[4];
 
 	public Tablero(int x, int y) {
 		columnas = x;
 		filas = y;
 		this.y = y -1;
+	}
+
+	public Vector getVector() {
+		return new Vector(vector[0], vector[1], vector[2], vector[3]);
+	}
+
+	public void setInicial() {
+		vector[0] = x;
+		vector[1] = filas-y-1;
+	}
+
+	public void setFinal() {
+		vector[2] = x;
+		vector[3] = filas-y-1;
 	}
 
 	private void setPosicion(int dato) {
