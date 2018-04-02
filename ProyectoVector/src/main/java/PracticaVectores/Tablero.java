@@ -4,57 +4,50 @@ public class Tablero {
 
 	private int filas;
 	private int columnas;
-	private int[][] matriz;
-	private int cont = 0;
-	private int x;
+	private int x = 0;
 	private int y;
 
 	public Tablero(int x, int y) {
 		columnas = x;
 		filas = y;
+		this.y = y -1;
 	}
 
-	// private int getPosicion(int dato) {
-	// 	x = b;
-	// 	y = c - 1;
-	// 	if (x == 0 || x == y || dato == 3 || dato == 4) {
-	// 		x = x;
-	// 	}
-	// 	if (dato == 1 && x > 0) {
-	// 		x--;
-	// 	}
-	// 	if (dato == 2 && x < y) {
-	// 		x++;
-	// 	}
-	// 	return x;
-	// }
-
-	public int[][] iniciarMatriz() {
-		this.matriz = new int[filas][columnas];
-		cont=0;
-		for (int i=0; i<filas; i++) {
-			for (int j=0; j<columnas; j++) {
-				if (i == 0) {
-				matriz[i][j] = cont;
-				cont++;
-				}
-				if (i > 0 && j == 0) {
-				matriz[i][j] = i;
-				}
-			}
+	private void setPosicion(int dato) {
+		if (dato == 1 && y > 0) {
+			y--;
 		}
-		return matriz;
+		if (dato == 2 && y < filas-1) {
+			y++;
+		}
+		if (dato == 3 && x < columnas-1) {
+			x++;
+		}
+		if (dato == 4 && x > 0) {
+			x--;
+		}
 	}
 
-	public void printMatriz(int a, int b) {
-		System.out.println("\nLa posicion de X en coordenadas ("+x+","+y+") es:\n");
+	public void printMatriz(int dato) {
+		setPosicion(dato);
+		System.out.println("\nLa posicion de X en coordenadas ("+x+","+(filas-y-1)+") es:\n");
 		for (int i=0; i<filas; i++) {
 			for (int j=0; j<columnas; j++) {
-				if (i == a && j == b) {
+				if (i == y && j == x) {
 					System.out.print("X" + " ");
 				}
 				else {
-					System.out.print(matriz[i][j] + " ");
+					if (i == filas-1) {
+						System.out.print(j + " ");
+					}
+					else {
+						if(j == 0) {
+							System.out.print((filas-i-1) + " ");
+						}
+						else {
+							System.out.print(0 + " ");
+						}
+					}
 				}
 			}
 			System.out.println(" ");
