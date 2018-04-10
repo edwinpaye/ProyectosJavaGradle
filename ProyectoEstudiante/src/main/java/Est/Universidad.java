@@ -11,7 +11,7 @@ public class Universidad {
     this.nombre = nombre;
   }
 
-  public String getNombre(){
+  public String getNUni(){
     return nombre;
   }
 }

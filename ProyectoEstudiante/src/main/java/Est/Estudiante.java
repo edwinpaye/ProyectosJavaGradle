@@ -1,5 +1,8 @@
 package Est;
-public class Estudiante {
+
+import java.util.Arrays;
+
+public class Estudiante implements Comparable<Estudiante> {
 
   private int edad;
   private String nombre;
@@ -36,5 +39,15 @@ public class Estudiante {
   }
   public Universidad getUni(){
     return universidad;
+  }
+  @Override
+  public int compareTo(Estudiante e){
+    if (edad < e.getEdad()) {
+      return -1;
+    }
+    if (edad > e.getEdad()) {
+      return 1;
+    }
+    return 0;
   }
 }
