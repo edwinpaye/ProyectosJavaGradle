@@ -3,7 +3,11 @@ package Ventana;
 public class Main {
 
     public static void main(String[] args) {
-        new FormasDeInterfaz();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FormasDeInterfaz().setVisible(true);
+            }
+        });
     }
     
 }

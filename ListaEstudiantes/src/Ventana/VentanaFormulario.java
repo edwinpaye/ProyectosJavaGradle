@@ -53,6 +53,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,6 +128,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 //                String prueva = "<p>Prueva<p>Prueva<p>Prueva<p>Prueva<p>Prueva";
