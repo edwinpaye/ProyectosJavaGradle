@@ -1,14 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventana;
 
-/**
- *
- * @author rolando
- */
+import javax.swing.JOptionPane;
+
 public class Autenticacion {
     
+    public Autenticacion(){}
+    
+    public boolean CheckString(String date){
+        for (int i = 0; i < date.length(); i++) {
+            if (!Character.isAlphabetic(date.charAt(i))) {
+                ErrorMessage("alfabetico");
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public boolean checkInt(String date){
+        for (int i = 0; i < date.length(); i++) {
+            if (!Character.isDigit(date.charAt(i))) {
+                ErrorMessage("numerico");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void ErrorMessage(String tipeDate){
+        JOptionPane.showMessageDialog(null, "El dato deve ser "+tipeDate);
+    }
 }

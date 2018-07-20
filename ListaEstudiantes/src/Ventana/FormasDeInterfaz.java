@@ -3,6 +3,7 @@ package Ventana;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class FormasDeInterfaz extends javax.swing.JFrame {
 
@@ -76,6 +77,8 @@ public class FormasDeInterfaz extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 150, 50));
+
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoLogin.jpg"))); // NOI18N
         getContentPane().add(lblimage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 359, 465));
 
         pack();
@@ -88,7 +91,16 @@ public class FormasDeInterfaz extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        if (jTextField1.getText().contentEquals("Amo") && jPasswordField1.getText().contentEquals("White")) {
+            this.setVisible(false);
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new VentanaFormulario().setVisible(true);
+                }
+            });
+        }else{
+            JOptionPane.showMessageDialog(null, "Date Incorrect");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
