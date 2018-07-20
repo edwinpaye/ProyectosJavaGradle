@@ -1,32 +1,43 @@
 package ProyectoDosUI;
 
-import java.awt.geom.AffineTransform;
-// import java.awt.event.KeyEvent;
-import java.awt.event.*;
 import java.awt.*;
-
 import javax.swing.*;
 
-public class ImageB extends JComponent {
+public class ImageB {
 
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(icono.getIconWidth(), icono.getIconHeight());
-    }
-
-    private ImageIcon icono;
+    private int dx;
+    private int dy;
+    private int x;
+    private int y;
+    private double rotacion = 0.0;
+    private Image imagen ;
 
     public ImageB(String imag) {
-        icono = new ImageIcon(imag);
+        x = 0;
+        y = 0;
+        imagen = new ImageIcon(this.getClass().getResource(imag))
+        .getImage().getScaledInstance(150,90, Image.SCALE_DEFAULT);
     }
 
-    private double rotacion = 0.0;
+    public void mover(){
+        x += dx;
+        y += dy;
+    }
 
-    public void paint(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        AffineTransform tx = AffineTransform.getRotateInstance(rotacion,
-                icono.getIconWidth()/2, icono.getIconHeight()/2);
-        g2d.drawImage(icono.getImage(), tx, this);
+    public int tenerX(){
+        return x;
+    }
+
+    public void setXY(int a, int b){
+      x = a; y = b;
+    }
+
+    public int tenerY(){
+        return y;
+    }
+
+    public Image tenerImagen(){
+        return imagen;
     }
 
     public double getRotacion() {
@@ -37,17 +48,4 @@ public class ImageB extends JComponent {
         this.rotacion = rotacion;
     }
 
-    public void keyPressed(KeyEvent e){
-      int key = e.getKeyCode();
-      if (key == KeyEvent.VK_ENTER) {
-        new Timer(40, new ActionListener()
-        {
-          public void actionPerformed(ActionEvent evt)
-          {
-            setRotacion(getRotacion() - 0.005);
-            repaint();
-          }
-        }).start();
-      }
-    }
 }
