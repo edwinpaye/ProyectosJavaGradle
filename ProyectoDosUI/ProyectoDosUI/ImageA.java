@@ -1,8 +1,6 @@
 package ProyectoDosUI;
 
 import java.awt.*;
-// import java.awt.Image;
-// import java.awt.event.KeyEvent;
 import java.awt.event.*;
 
 import javax.swing.ImageIcon;
@@ -16,11 +14,10 @@ public class ImageA {
   private Image imagen ;
 
   public ImageA(String imag) {
-    x = 325;
-    y = 225;
-    // ImageIcon img = new ImageIcon(this.getClass().getResource(imag));
+    x = 0;
+    y = 0;
     imagen = new ImageIcon(this.getClass().getResource(imag))
-    .getImage().getScaledInstance(150,90, Image.SCALE_DEFAULT);
+    .getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT);
   }
 
   public void mover(){
@@ -65,15 +62,7 @@ public class ImageA {
     if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_RIGHT) {
       dx = 0;
     }
-/*
-    if (key == KeyEvent.VK_RIGHT) {
-      dx = 0;
-    }
 
-    if (key == KeyEvent.VK_UP) {
-      dy = 0;
-    }
-*/
     if (key == KeyEvent.VK_UP || key == KeyEvent.VK_DOWN) {
       dy = 0;
     }
