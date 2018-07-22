@@ -7,27 +7,27 @@ import javax.swing.ImageIcon;
 
 public class VentanaDatos extends javax.swing.JFrame {
     
-    private ListUsuarios list;
+//    private ListUsuarios list;
 
     public VentanaDatos(ArrayList<Usuario> listUser) {
         initComponents();
-        this.list = new ListUsuarios(listUser);
+//        this.list = new ListUsuarios(listUser);
         this.setLocationRelativeTo(null);
         ImageIcon imagen = new ImageIcon("src/imagenes/fondoMatrix.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
         jLabel2.setIcon(icono);
         this.repaint();
-        printDates();
+        printDates(listUser);
     }
     
-    private void printDates(){
+    private void printDates(ArrayList<Usuario> list){
         String name ="", lastName="", age="", ocupation="", numReg="";
-        for (int i = 0; i < list.getActual().size(); i++) {
-            name += "<p>"+list.getActual().get(i).getName();
-            lastName += "<p>"+list.getActual().get(i).getLastName();
-            age += "<p>"+list.getActual().get(i).getAge();
-            ocupation += "<p>"+list.getActual().get(i).getOcupation();
-            numReg += "<p>"+(i+1);
+        for (int i = 0; i < list.size(); i++) {
+            name += "<p>"+list.get(i).getName();
+            lastName += "<p>"+list.get(i).getLastName();
+            age += "<p>"+list.get(i).getAge();
+            ocupation += "<p>"+list.get(i).getDirection();
+            numReg += "<p>"+list.get(i).getSueldo();
         }
         lblName.setText("<html>Nombre"+name+"<html>");
         lvlLastName.setText("<html>Apellido"+lastName+"<html>");
@@ -118,12 +118,12 @@ public class VentanaDatos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaFormulario().setVisible(true);
-            }
-        });
+//        this.setVisible(false);
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VentanaFormulario().setVisible(true);
+//            }
+//        });
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
