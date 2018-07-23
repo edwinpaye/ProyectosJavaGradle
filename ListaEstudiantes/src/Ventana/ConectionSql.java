@@ -18,9 +18,8 @@ public class ConectionSql {
     }
     
     public boolean isConnected() {
-        
         try{
-            if (Connect().isClosed()) {
+            if (myConnection.isClosed()) {
                 System.out.println("La base de datos esta apagada");
                 return false;
             }
@@ -31,13 +30,21 @@ public class ConectionSql {
         return true;
     }
     
-    public Connection Connect() {
+    public void Connect() {
         try {
             System.out.println("Coneccion realizada");
-            return myConnection = DriverManager.getConnection("jdbc:mysql://192.168.100.8/USUARIO",this.user,this.password);
+            myConnection = DriverManager.getConnection("jdbc:mysql://192.168.100.8/USUARIO",this.user,this.password);
         } catch (Exception e) {
+            System.out.println("Connection fail"+e.getMessage());
         }
-        return this.myConnection;
+    }
+    
+    public Connection getConnection(){
+        return myConnection;
+    }
+    
+    public void setConnection(Connection newConnection){
+        myConnection = newConnection;
     }
     
 //    public static void cerrar() throws SQLException {
