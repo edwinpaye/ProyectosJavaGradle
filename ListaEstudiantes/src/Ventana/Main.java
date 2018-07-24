@@ -3,11 +3,8 @@ package Ventana;
 public class Main {
 
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormasDeInterfaz().setVisible(true);
-            }
-        });
+
+        new Controlador().Start("root", "root", "192.168.100.8");
     }
     
 }
