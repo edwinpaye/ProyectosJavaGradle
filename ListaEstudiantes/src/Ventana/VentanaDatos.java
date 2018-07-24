@@ -7,32 +7,32 @@ import javax.swing.ImageIcon;
 
 public class VentanaDatos extends javax.swing.JFrame {
     
-//    private ListUsuarios list;
-
-    public VentanaDatos(ArrayList<Usuario> listUser) {
+    private javax.swing.JFrame vAnterior;
+    
+    public VentanaDatos(ArrayList<Usuario> list, javax.swing.JFrame vAnterior) {
+        this.vAnterior = vAnterior;
         initComponents();
-//        this.list = new ListUsuarios(listUser);
         this.setLocationRelativeTo(null);
-        ImageIcon imagen = new ImageIcon("src/imagenes/fondoMatrix.jpg");
+        ImageIcon imagen = new ImageIcon("src/imagenes/FData.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
         jLabel2.setIcon(icono);
         this.repaint();
-        printDates(listUser);
+        printDates(list);
     }
     
     private void printDates(ArrayList<Usuario> list){
-        String name ="", lastName="", age="", ocupation="", numReg="";
+        String name ="", lastName="", sueldo="", ocupation="", numReg="";
         for (int i = 0; i < list.size(); i++) {
             name += "<p>"+list.get(i).getName();
             lastName += "<p>"+list.get(i).getLastName();
-            age += "<p>"+list.get(i).getAge();
+            numReg += "<p>"+list.get(i).getAge();
             ocupation += "<p>"+list.get(i).getDirection();
-            numReg += "<p>"+list.get(i).getSueldo();
+            sueldo += "<p>"+list.get(i).getSueldo();
         }
         lblName.setText("<html>Nombre"+name+"<html>");
         lvlLastName.setText("<html>Apellido"+lastName+"<html>");
-        lblAge.setText("<html>Edad"+age+"<html>");
-        lblOcupation.setText("<html>Ocupacion"+ocupation+"<html>");
+        lblAge.setText("<html>Cargo"+ocupation+"<html>");
+        lblOcupation.setText("<html>Sueldo"+sueldo+"<html>");
         lblNumReg.setText("<html>Num de Reg."+numReg+"<html>");
     }
     
@@ -85,8 +85,8 @@ public class VentanaDatos extends javax.swing.JFrame {
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, 280));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,8 +95,8 @@ public class VentanaDatos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Previus");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,62 +105,20 @@ public class VentanaDatos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoMatrix.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FData.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-//        this.setVisible(false);
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new VentanaFormulario().setVisible(true);
-//            }
-//        });
+        vAnterior.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(VentanaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(VentanaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(VentanaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(VentanaDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-////                String prueva = "<p>Prueva<p>Prueva<p>Prueva<p>Prueva<p>Prueva";
-//                new VentanaDatos(new ArrayList<Usuario>()).setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
