@@ -15,13 +15,11 @@ public class UserManager {
     
     public UserManager(ConectionSql newConectionSql){
         this.conn = conn;
-        conn.Connect();
     }
     
     public void ConnectedQueryPrepared(String consulta){
         if (conn.isConnected()) {
             try {
-//                conn.Connect();
                 miSentencia = conn.getConnection().prepareStatement(consulta);
             } catch (Exception e) {
                 System.out.println("Error en la consulta!");
@@ -30,7 +28,6 @@ public class UserManager {
         else{
             System.out.println("no se pudo crear coneccion, error! ");
         }
-//        return miSentencia; 
     }
     
     public void PreparedStatementQuery(String buscarapp){
@@ -41,23 +38,8 @@ public class UserManager {
         } catch (Exception e) {
             System.out.println("Error en respuesta Busqueda! "+e.getMessage());
         }
-//        return resultado;
     }
     
-//    public void ShowSearchUser(String dato) {
-//        int i=0;
-//        try {
-//            PreparedStatementQuery(dato);
-//            while (resultado.next()) {
-//                i++;
-//                System.out.println("Cargo: "+resultado.getString(1)+" Nombre: "+resultado.getString(2)+" Apellido: "+resultado.getString(3)+" Salario: "+resultado.getInt(4));
-//                System.out.println("");
-//            }
-//            System.out.println("Total hallados: "+i);
-//        } catch (Exception e) {
-//            System.out.println("Error en la coneccion..."+e.getMessage());
-//        }
-//    }
     //este metodo uetra todos los usuarios ojo al charque
     public ArrayList<Usuario> ShowUsers(){
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
@@ -76,12 +58,11 @@ public class UserManager {
     
     private void ConnectWithAllUsers() {
         try {
-//            conn.Connect();
+            conn.Connect();
             declaración = conn.getConnection().createStatement();
         } catch (Exception e) {
             System.out.println("error en el metodo ConnectWithAllUsers()");
         }
-//        return declaración;
     }
 
     private void ExecuteConnectionQuery(String query) {
@@ -91,7 +72,6 @@ public class UserManager {
         } catch (Exception e) {
             System.out.println("Error en las consultas."+e.getMessage());
         }
-//        return resultado;
     }
     
     public void AddUser(String id_usuario,String cargo,String nombre,String app,int salario) {
@@ -136,6 +116,5 @@ public class UserManager {
         } catch (Exception e) {
             System.out.println("error en la edicion de usuario"+e.getMessage());
         }
-        
     }
 }
