@@ -8,19 +8,22 @@ public class VentanaFormulario extends javax.swing.JFrame {
     
     private UserManager userManag;
     private Autenticacion autent;
-    private javax.swing.JFrame vEdicion;
+//    private VentanaEdicion vEdicion;
     
-    public VentanaFormulario(UserManager userManag, javax.swing.JFrame ventanaEdicion, Autenticacion newAutent) {
+    public VentanaFormulario(UserManager userManag, Autenticacion newAutent) {
         initComponents();
         this.userManag = userManag;
         autent = newAutent;
-        vEdicion = ventanaEdicion;
         this.setLocationRelativeTo(null);
         ImageIcon imagen = new ImageIcon("src/imagenes/fondoFormulario.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
         jLabel2.setIcon(icono);
         this.repaint();
     }
+    
+//    public void setVentanaEdicion(VentanaEdicion ventanaEdicion){
+//        vEdicion = ventanaEdicion;
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,7 +169,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                vEdicion.setVisible(true);
+                new VentanaEdicion(userManag, autent, getVentana(), new ListUsuarios(userManag)).setVisible(true);
             }
         });
     }//GEN-LAST:event_jButton4ActionPerformed
