@@ -9,12 +9,13 @@ import java.sql.Statement;
 
 public class ConectionSql {
 
-    private String user,password;
+    private String user,password, directionIp;
     private Connection myConnection;
     
-    public ConectionSql(String user,String password) {
+    public ConectionSql(String user,String password, String directionIp) {
         this.user=user;
         this.password = password;
+        this.directionIp = directionIp;
     }
     
     public boolean isConnected() {
@@ -33,7 +34,7 @@ public class ConectionSql {
     public void Connect() {
         try {
             System.out.println("Coneccion realizada");
-            myConnection = DriverManager.getConnection("jdbc:mysql://192.168.100.8/USUARIO",this.user,this.password);
+            myConnection = DriverManager.getConnection("jdbc:mysql://"+directionIp+"/USUARIO",this.user,this.password);
         } catch (Exception e) {
             System.out.println("Connection fail"+e.getMessage());
         }
