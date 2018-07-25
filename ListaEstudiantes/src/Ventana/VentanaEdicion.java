@@ -8,14 +8,13 @@ import javax.swing.ImageIcon;
 public class VentanaEdicion extends javax.swing.JFrame {
 
     private UserManager userManag;
-    private javax.swing.JFrame vFormulario;
+    private VentanaFormulario vFormulario;
     private Autenticacion autent;
     private ListUsuarios listUsers;
     
-    public VentanaEdicion(UserManager newUserManag, javax.swing.JFrame newVentanaFormulario, Autenticacion newAutent, ListUsuarios listUsers) {
+    public VentanaEdicion(UserManager newUserManag, Autenticacion newAutent, VentanaFormulario newVentanaFormulario, ListUsuarios listUsers) {
         initComponents();
         userManag = newUserManag;
-        vFormulario = newVentanaFormulario;
         autent = newAutent;
         this.listUsers = listUsers;
         this.setLocationRelativeTo(null);
@@ -24,6 +23,15 @@ public class VentanaEdicion extends javax.swing.JFrame {
         jLabel8.setIcon(icono);
         this.repaint();
     }
+    
+//    public void setVentanaFormulario(VentanaFormulario newVentanaFormulario){
+//        vFormulario = newVentanaFormulario;
+//    }
+    
+    public VentanaEdicion getVentana(){
+        return this;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,11 +149,13 @@ public class VentanaEdicion extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_btnListUsersActionPerformed
 
-    private VentanaEdicion getVentana(){
-        return this;
-    }
     private void btnUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserFormActionPerformed
-        
+        this.setVisible(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                vFormulario.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_btnUserFormActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
