@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class ConectionSql {
 
     private String user,password, directionIp;
-    private Connection myConnection;
+//    private Connection connection = null;
     
     public ConectionSql(String user,String password, String directionIp) {
         this.user=user;
@@ -18,35 +18,65 @@ public class ConectionSql {
         this.directionIp = directionIp;
     }
     
-    public boolean isConnected() {
-        try{
-            if (myConnection.isClosed()) {
-                System.out.println("La base de datos esta apagada");
-                return false;
-            }
-        }catch (Exception e) {
-            System.out.println("No se pudo estableder coneccion " + e.getMessage());
-            e.getStackTrace();
-        }
-        return true;
-    }
-    
-    public void Connect() {
-        try {
-            System.out.println("Coneccion realizada");
-            myConnection = DriverManager.getConnection("jdbc:mysql://"+directionIp+"/USUARIO",this.user,this.password);
-        } catch (Exception e) {
-            System.out.println("Connection fail"+e.getMessage());
-        }
-    }
-    
     public Connection getConnection(){
-        return myConnection;
+        try{
+            //obtenemos el driver de para mysql
+            Class.forName("com.mysql.jdbc.Driver");
+            //obtenemos la conexión
+            return DriverManager.getConnection(directionIp,user,password);
+//            if (connection!=null){
+//               System.out.println("Conexión a base de datos Usuario OK\n");
+//            }
+        }
+        catch(SQLException e){
+           System.out.println(e);
+        }catch(ClassNotFoundException e){
+           System.out.println(e);
+        }catch(Exception e){
+           System.out.println(e);
+        }
+        return null;
     }
     
-    public void setConnection(Connection newConnection){
-        myConnection = newConnection;
-    }
+//    public boolean isConnected(Connection newConnection) {
+//        try{
+//            if (newConnection.isClosed()) {
+//                System.out.println("La base de datos esta apagada");
+//                return false;
+//            }
+//        }catch (Exception e) {
+//            System.out.println("No se pudo estableder coneccion " + e.getMessage());
+//            e.getStackTrace();
+//        }
+//        return true;
+//    }
+    
+//    public Connection Connect(){
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            return DriverManager.getConnection("jdbc:mysql://"+directionIp+"/USUARIO",this.user,this.password);
+//        } catch (Exception e) {
+//            System.out.println("Connection SQL fail"+e.getMessage());
+//        }
+//        System.out.println("Coneccion realizada");
+//        try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                return DriverManager.getConnection("jdbc:mysql://localhost:3306/USUARIO","root","root");
+//            } catch (SQLException ex) {
+//                throw new SQLException(ex);
+//            } catch (ClassNotFoundException ex) {
+//                throw new ClassCastException(ex.getMessage());
+//            }
+//        return null;
+//    }
+    
+//    public Connection getConection(){
+//        return myConnection;
+//    }
+    
+//    public void setConnection(Connection newConnection){
+//        myConnection = newConnection;
+//    }
     
 //    public static void cerrar() throws SQLException {
 //        if (myConnection != null) {
@@ -54,10 +84,10 @@ public class ConectionSql {
 //        }
 //    }
     
-    public void CloseConnection(){
+//    public void CloseConnection(){
 //        myConnection.close();
-        myConnection = null;
-    }
+//        myConnection = null;
+//    }
 
 //    public void cerrarConexion() throws SQLException {
 //        try {
@@ -69,9 +99,9 @@ public class ConectionSql {
     
 //    public static void main(String[] args) {
 //       
-//        Connection conexion = new ConectionSql("root", "root").Connect();
-////        conexion.Connect();
-////        conexion.CloseConnection();
+//        ConectionSql conexion = new ConectionSql("root", "root", "localhost:3306");
+//        conexion.Connect();
+//        conexion.CloseConnection();
 //    }
     
 //    private static Connection cnx = null;
