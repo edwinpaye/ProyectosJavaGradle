@@ -19,6 +19,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
         jLabel2.setIcon(icono);
         this.repaint();
+                userManag.conectar();
     }
     
 //    public void setVentanaEdicion(VentanaEdicion ventanaEdicion){
