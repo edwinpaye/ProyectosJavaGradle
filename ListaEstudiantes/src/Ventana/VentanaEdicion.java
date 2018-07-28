@@ -8,15 +8,14 @@ import javax.swing.ImageIcon;
 public class VentanaEdicion extends javax.swing.JFrame {
 
     private UserManager userManag;
-    private VentanaFormulario vFormulario;
     private Autenticacion autent;
     private ListUsuarios listUsers;
     
-    public VentanaEdicion(UserManager newUserManag, Autenticacion newAutent, VentanaFormulario newVentanaFormulario, ListUsuarios listUsers) {
+    public VentanaEdicion(UserManager newUserManag, Autenticacion newAutent, ListUsuarios newListUsuarios) {
         initComponents();
         userManag = newUserManag;
         autent = newAutent;
-        this.listUsers = listUsers;
+        this.listUsers = newListUsuarios;
         this.setLocationRelativeTo(null);
         ImageIcon imagen = new ImageIcon("src/imagenes/FData.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
@@ -24,15 +23,10 @@ public class VentanaEdicion extends javax.swing.JFrame {
         this.repaint();
     }
     
-//    public void setVentanaFormulario(VentanaFormulario newVentanaFormulario){
-//        vFormulario = newVentanaFormulario;
-//    }
-    
     public VentanaEdicion getVentana(){
         return this;
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,9 +123,9 @@ public class VentanaEdicion extends javax.swing.JFrame {
         for (int i = 0; i < list.size(); i++) {
             name += "<p>"+list.get(i).getName();
             lastName += "<p>"+list.get(i).getLastName();
-            numReg += "<p>"+list.get(i).getAge();
-            ocupation += "<p>"+list.get(i).getDirection();
-            sueldo += "<p>"+list.get(i).getSueldo();
+            numReg += "<p>"+list.get(i).getId_user();
+            ocupation += "<p>"+list.get(i).getPosition();
+            sueldo += "<p>"+list.get(i).getSalary();
         }
         lblNombre.setText("<html>Nombre"+name+"<html>");
         lblLastName.setText("<html>Apellido"+lastName+"<html>");
@@ -150,12 +144,12 @@ public class VentanaEdicion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListUsersActionPerformed
 
     private void btnUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserFormActionPerformed
-        this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                vFormulario.setVisible(true);
+                new VentanaFormulario(userManag, autent).setVisible(true);
             }
         });
+        this.dispose();
     }//GEN-LAST:event_btnUserFormActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
