@@ -8,7 +8,6 @@ public class VentanaFormulario extends javax.swing.JFrame {
     
     private UserManager userManag;
     private Autenticacion autent;
-//    private VentanaEdicion vEdicion;
     
     public VentanaFormulario(UserManager userManag, Autenticacion newAutent) {
         initComponents();
@@ -19,12 +18,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
         jLabel2.setIcon(icono);
         this.repaint();
-                userManag.conectar();
     }
-    
-//    public void setVentanaEdicion(VentanaEdicion ventanaEdicion){
-//        vEdicion = ventanaEdicion;
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,10 +34,10 @@ public class VentanaFormulario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        lblName = new javax.swing.JTextField();
+        lblLastName = new javax.swing.JTextField();
+        lblSalary = new javax.swing.JTextField();
+        lblOcupation = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -83,10 +77,10 @@ public class VentanaFormulario extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cargo:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 260, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 260, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 260, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 260, -1));
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 260, -1));
+        getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 260, -1));
+        getContentPane().add(lblSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 260, -1));
+        getContentPane().add(lblOcupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 260, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -148,9 +142,8 @@ public class VentanaFormulario extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String date = String.valueOf(userManag.ShowUsers().size()+1);
-        if (filter(jTextField4.getText(), jTextField1.getText(), jTextField2.getText(), jTextField3.getText())) {
-            userManag.AddUser(date , jTextField4.getText(), jTextField1.getText(), jTextField2.getText(), Integer.parseInt(jTextField3.getText()));
+        if (filter(lblOcupation.getText(), lblName.getText(), lblLastName.getText(), lblSalary.getText())) {
+            userManag.AddUser(String.valueOf(userManag.ShowUsers().size()+1) , lblOcupation.getText(), lblName.getText(), lblLastName.getText(), Integer.parseInt(lblSalary.getText()));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -167,12 +160,12 @@ public class VentanaFormulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEdicion(userManag, autent, getVentana(), new ListUsuarios(userManag)).setVisible(true);
+                new VentanaEdicion(userManag, autent, new ListUsuarios(userManag.ShowUsers())).setVisible(true);
             }
         });
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -186,9 +179,9 @@ public class VentanaFormulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField lblLastName;
+    private javax.swing.JTextField lblName;
+    private javax.swing.JTextField lblOcupation;
+    private javax.swing.JTextField lblSalary;
     // End of variables declaration//GEN-END:variables
 }
