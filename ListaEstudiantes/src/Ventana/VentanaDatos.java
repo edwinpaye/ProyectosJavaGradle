@@ -25,9 +25,9 @@ public class VentanaDatos extends javax.swing.JFrame {
         for (int i = 0; i < list.size(); i++) {
             name += "<p>"+list.get(i).getName();
             lastName += "<p>"+list.get(i).getLastName();
-            numReg += "<p>"+list.get(i).getAge();
-            ocupation += "<p>"+list.get(i).getDirection();
-            sueldo += "<p>"+list.get(i).getSueldo();
+            numReg += "<p>"+list.get(i).getId_user();
+            ocupation += "<p>"+list.get(i).getPosition();
+            sueldo += "<p>"+list.get(i).getSalary();
         }
         lblName.setText("<html>Nombre"+name+"<html>");
         lvlLastName.setText("<html>Apellido"+lastName+"<html>");
@@ -65,22 +65,27 @@ public class VentanaDatos extends javax.swing.JFrame {
         jLabel1.setText("List of Users");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
+        lblNumReg.setBackground(new java.awt.Color(255, 255, 255));
         lblNumReg.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblNumReg.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblNumReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 100, 270));
 
+        lblOcupation.setBackground(new java.awt.Color(255, 255, 255));
         lblOcupation.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblOcupation.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblOcupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 100, 270));
 
+        lblAge.setBackground(new java.awt.Color(255, 255, 255));
         lblAge.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblAge.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 90, 270));
 
+        lvlLastName.setBackground(new java.awt.Color(255, 255, 255));
         lvlLastName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lvlLastName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lvlLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 110, 280));
 
+        lblName.setBackground(new java.awt.Color(255, 255, 255));
         lblName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, 280));
