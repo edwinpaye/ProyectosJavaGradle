@@ -6,16 +6,12 @@ public class ListUsuarios extends Autenticacion{
 
     private ArrayList<Usuario> list;
 
-    public ListUsuarios(UserManager userManager) {
-        this.list = userManager.ShowUsers();
+    public ListUsuarios(ArrayList<Usuario> newList) {
+        this.list = newList;
     }
 
     public ArrayList<Usuario> getActual(){
         return list;
-    }
-
-    public void setLista(ArrayList<Usuario> listUsuario){
-        this.list = listUsuario;
     }
 
     public ArrayList<Usuario> searchAllUserData(String date){
@@ -45,14 +41,14 @@ public class ListUsuarios extends Autenticacion{
     }
 
     public boolean compareAddress(int posicionUser, String date){
-        return list.get(posicionUser).getDirection().contentEquals(date);
+        return list.get(posicionUser).getPosition().contentEquals(date);
     }
 
     public boolean compareSalary(int posicionUser, String date){
-        return list.get(posicionUser).getSueldo().contentEquals(date);
+        return String.valueOf(list.get(posicionUser).getSalary()).contentEquals(date);
     }
     
     public boolean compareID(int posicionUser, String date){
-        return list.get(posicionUser).getAge().contentEquals(date);
+        return list.get(posicionUser).getId_user().contentEquals(date);
     }
 }
