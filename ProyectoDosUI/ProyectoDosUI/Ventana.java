@@ -17,8 +17,7 @@ public class Ventana extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		add(new InsertImageA());
-		// add(new ImageB("image1.png"));
-		setTitle("Prueva");
+		setTitle("Proyecto Dos UI");
 		setSize(alto, ancho);
 		setVisible(true);
 		setLocationRelativeTo(null);
