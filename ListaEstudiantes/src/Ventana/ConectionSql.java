@@ -10,7 +10,6 @@ import java.sql.Statement;
 public class ConectionSql {
 
     private String user,password, directionIp;
-//    private Connection connection = null;
     
     public ConectionSql(String user,String password, String directionIp) {
         this.user=user;
