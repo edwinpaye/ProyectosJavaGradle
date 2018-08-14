@@ -48,12 +48,15 @@ public class VentanaEdicion extends javax.swing.JFrame {
         lblDireccion = new javax.swing.JLabel();
         lblSueldo = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
+        btnChange = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Data Editor");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 160, 40));
@@ -70,6 +73,7 @@ public class VentanaEdicion extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 200, 30));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Data to search:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
@@ -88,7 +92,7 @@ public class VentanaEdicion extends javax.swing.JFrame {
                 btnUserFormActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUserForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
+        getContentPane().add(btnUserForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
         btnListUsers.setText("List of Users");
         btnListUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -96,12 +100,43 @@ public class VentanaEdicion extends javax.swing.JFrame {
                 btnListUsersActionPerformed(evt);
             }
         });
-        getContentPane().add(btnListUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        getContentPane().add(btnListUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        lblNombre.setBackground(new java.awt.Color(255, 255, 255));
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, 210));
+
+        lblLastName.setBackground(new java.awt.Color(255, 255, 255));
+        lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 80, 210));
+
+        lblDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        lblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 90, 210));
+
+        lblSueldo.setBackground(new java.awt.Color(255, 255, 255));
+        lblSueldo.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 70, 210));
+
+        lblID.setBackground(new java.awt.Color(255, 255, 255));
+        lblID.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 140, 50, 210));
+
+        btnChange.setText("Edit User");
+        btnChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
+
+        btnDelete.setText("Delete User");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FData.jpg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 410));
@@ -127,11 +162,11 @@ public class VentanaEdicion extends javax.swing.JFrame {
             ocupation += "<p>"+list.get(i).getPosition();
             sueldo += "<p>"+list.get(i).getSalary();
         }
-        lblNombre.setText("<html>Nombre"+name+"<html>");
-        lblLastName.setText("<html>Apellido"+lastName+"<html>");
-        lblDireccion.setText("<html>Cargo"+ocupation+"<html>");
-        lblSueldo.setText("<html>Suedo"+sueldo+"<html>");
-        lblID.setText("<html>Num de Reg."+numReg+"<html>");
+        lblNombre.setText("<html>Nombre:"+name+"<html>");
+        lblLastName.setText("<html>Apellido:"+lastName+"<html>");
+        lblDireccion.setText("<html>Cargo:"+ocupation+"<html>");
+        lblSueldo.setText("<html>Suedo:"+sueldo+"<html>");
+        lblID.setText("<html>Num:"+numReg+"<html>");
     }
     
     private void btnListUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListUsersActionPerformed
@@ -152,7 +187,17 @@ public class VentanaEdicion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnUserFormActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
+        
+    }//GEN-LAST:event_btnChangeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChange;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnListUsers;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUserForm;
