@@ -77,7 +77,7 @@ public class VentanaFormulario extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cargo:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
-        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 260, -1));
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 260, -1));
         getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 260, -1));
         getContentPane().add(lblSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 260, -1));
         getContentPane().add(lblOcupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 260, -1));
@@ -143,7 +143,11 @@ public class VentanaFormulario extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (filter(lblOcupation.getText(), lblName.getText(), lblLastName.getText(), lblSalary.getText())) {
-            userManag.AddUser(String.valueOf(userManag.ShowUsers().size()+1) , lblOcupation.getText(), lblName.getText(), lblLastName.getText(), Integer.parseInt(lblSalary.getText()));
+            userManag.AddUser(String.valueOf(userManag.ShowUsers().size()+10) , lblOcupation.getText(), lblName.getText(), lblLastName.getText(), Integer.parseInt(lblSalary.getText()));
+            lblName.setText("");
+            lblLastName.setText("");
+            lblOcupation.setText("");
+            lblSalary.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
