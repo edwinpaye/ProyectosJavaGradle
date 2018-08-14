@@ -19,7 +19,7 @@ public class VentanaDatos extends javax.swing.JFrame {
         this.repaint();
         printDates(list);
     }
-    
+
     private void printDates(ArrayList<Usuario> list){
         String name ="", lastName="", sueldo="", ocupation="", numReg="";
         for (int i = 0; i < list.size(); i++) {
@@ -53,6 +53,8 @@ public class VentanaDatos extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +112,19 @@ public class VentanaDatos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Number", "Id", "Name", "Last Name", "Cargo", "Salary"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 520, 250));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FData.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
@@ -130,6 +145,8 @@ public class VentanaDatos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNumReg;
