@@ -10,12 +10,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class UserManager {
-    
+
     private ConectionSql conn;
-//    private Statement declaración = null;
     private PreparedStatement miSentencia = null;
     private ResultSet resultado = null;
-    
+
     public UserManager(ConectionSql newConectionSql){
         conn = newConectionSql;
     }
@@ -27,7 +26,7 @@ public class UserManager {
             MessageEmergent("ConnectedQueryPrepared() fail "+e.getMessage());
         }
     }
-    
+
 //    public ResultSet PreparedStatementQuery(String buscarapp){
 //        try {
 //            ConnectedQueryPrepared("select cargo, nombre, apellido, sueldo from dato_empleado where apellido=?");
@@ -38,7 +37,7 @@ public class UserManager {
 //        }
 //        return null;
 //    }
-    
+
     private Statement ConnectWithAllUsers() {
         try {
             return conn.getConnection().createStatement();
@@ -47,7 +46,7 @@ public class UserManager {
         }
         return null;
     }
-    
+
     private ResultSet ExecuteConnectionQuery(String query) {
         try {
             return ConnectWithAllUsers().executeQuery(query);
@@ -56,7 +55,7 @@ public class UserManager {
         }
         return null;
     }
-    
+
     public ArrayList<Usuario> ShowUsers(){
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
         try {
@@ -70,7 +69,7 @@ public class UserManager {
         }
         return lista;
     }
-    
+
     public void AddUser(String id_usuario,String cargo,String nombre,String app,int salario) {
         try {
             ConnectedQueryPrepared("INSERT INTO dato_empleado"
@@ -82,12 +81,12 @@ public class UserManager {
             miSentencia.setString(4, app);
             miSentencia.setInt(5, salario);
             miSentencia.executeUpdate();
-            MessageEmergent("Add user");
+            MessageEmergent("Add user: "+nombre+" "+app);
         } catch (Exception e) {
             MessageEmergent("AddUser() fail "+e.getMessage());
         }
     } 
-    
+
     public void RemoveUser(String deleteUser){
         try {
             ConnectedQueryPrepared("DELETE FROM dato_empleado where id_usuario=?");
@@ -98,7 +97,7 @@ public class UserManager {
             MessageEmergent("RemoveUser() fail"+e.getMessage());
         }
     }
-    
+
     public void EditUser(String id_usuarioEdit,String id_usuario,String cargo,String nombre,String app,int salario){
         try {
             ConnectedQueryPrepared("UPDATE dato_empleado SET id_usuario= ?, cargo= ?, nombre= ?, apellido= ?, sueldo= ? WHERE id_usuario= ?");
@@ -109,22 +108,14 @@ public class UserManager {
             miSentencia.setInt(5, salario);
             miSentencia.setString(6, id_usuarioEdit);
             miSentencia.executeUpdate();
-//            System.out.println("usuario editado con exito");
-            MessageEmergent("Usuario editado con exito");
+            MessageEmergent("Edit User: "+nombre+" "+app);
         } catch (Exception e) {
             MessageEmergent("EditUser() fail "+e.getMessage());
         }
     }
-    
+
     public void MessageEmergent(String message){
         JOptionPane.showMessageDialog(null, message);
     }
-    
-//    public static void main (String[] args){
-//        UserManager usermanager = new UserManager(new ConectionSql("root", "root", "jdbc:mysql://localhost:3306/USUARIO"));
-//        usermanager.AddUser("11", "jefe", "aquiles", "vailo", 18);
-//        for (Usuario usuario : usermanager.ShowUsers()) {
-//            System.out.println(usuario.VerInfo());
-//        }
-//    }
+
 }
