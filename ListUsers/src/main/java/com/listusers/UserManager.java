@@ -113,5 +113,5 @@ private ConectionSql conn;
     public void MessageEmergent(String message){
         JOptionPane.showMessageDialog(null, message);
     }
-    
+
 }
