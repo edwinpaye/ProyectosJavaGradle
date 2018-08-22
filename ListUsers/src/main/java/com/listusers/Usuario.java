@@ -1,15 +1,15 @@
 package com.listusers;
 
 public class Usuario {
-    
+
     private String id_user;
     private String position;
     private String name;
     private String lastName;
     private int salary;
-        
+
     public Usuario() { }
-    
+
     public Usuario(String id_user,String position,String name,String lastName, int salary) {
         this.id_user = id_user;
         this.position = position;
@@ -17,7 +17,7 @@ public class Usuario {
         this.lastName = lastName;
         this.salary = salary;
     }
-   
+
     public String getId_user() {
         return id_user;
     }
@@ -57,5 +57,5 @@ public class Usuario {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-    
+
 }
